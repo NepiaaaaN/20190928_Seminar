@@ -1,0 +1,281 @@
+/* 編集しないでください */
+*, *:after, *:before {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    line-height: 1;
+    border: none;
+}
+
+body {
+    font-size: 10px;
+    line-height: 1em;
+    color: #fff;
+}
+/* ここから上は編集しないでください */
+/* -------------------------------------- */
+
+/* 　　　　　　　　ヘッダー                */
+
+header {
+        /* これ */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        /* 両端に余白とってあげましょ */
+        padding: 42px 50px;
+
+        /* フォント系 */
+        font-size: 18px;
+        font-family: "Avenir Next Condensed", sans-serif;
+}
+
+
+
+.ham {
+    cursor: pointer;
+    z-index: 100;
+}
+
+.ham div {
+    width: 30px;
+    height: 1px;
+    background-color: #fff;
+    transition: all 0.7s ease-in-out;
+    /* fixedで埋まっちゃうからこいつで浮上させる */
+    /* margin-top: 9px; */
+}
+
+.ham div:not(first-child) {
+    margin-top: 9px;
+}
+
+.ham.active div:nth-child(1) {
+    transform: rotateZ(405deg) translate(10px, 7px)
+}
+
+.ham.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.ham.active div:nth-child(3) {
+    transform: rotateZ(-405deg) translate(8px, -4px)
+}
+
+nav {
+    /* 大きさ */
+    width: 100vw;
+    height: 0vh;
+
+    /* 子要素(ul)の配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* htmlの構造・要素の整列から外すよ。 */
+    /* まぁ平たくいうと画面動かしても常に画面上にいるようになるよ */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* 透過背景色 */
+    background-color: rgba(28, 166, 210, 0.72);
+    transition: all 0.7s ease-in-out;
+
+    opacity: 0;
+}
+
+nav li {
+    /* 文字スタイルだけ〜 */
+    font-size: 18px;
+    letter-spacing: 4.5px;
+    font-family: "ヒラギノ角ゴシック", sans-serif;
+    font-weight: bold;
+    list-style: none;
+}
+
+nav li:not(:first-child) {
+    /* 最初以外余白とってるよ */
+    margin-top: 28px;
+}
+
+/* activeが付いたら表示、に書き換えるよ */
+/* nav.active {
+    display: flex;
+} */
+
+nav.active {
+    height: 100vh;
+    opacity: 1;
+}
+
+/* これを書いてみよう */
+/* これは、navがactiveっていうクラスが付いていたらという意味だよ */
+/* 試しにhtmlでnavタグにactiveっていうクラスかいて、ブラウザで確認して御覧なさいな */
+
+
+/* -------------------------------------- */
+
+
+/* -------------------------------------- */
+
+/* 　　　　　　　　アイキャッチ                */
+
+.i-catch {
+    background-image: url(../img/eyecatch.jpeg);
+
+    /* 縦横比は保持して、
+    背景領域を完全に覆う最小サイズになるように背景画像を拡大縮小する
+    */
+    background-size: cover;
+
+    /* 幅を親要素の100%にする */
+    width: 100%;
+
+    /* 高さを表示領域の高さの100%にする */
+    height: 100vh;
+}
+
+/* -------------------------------------- */
+
+/* -------------------------------------- */
+
+/* 　　　　　　　　　 中段                    */
+
+.sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 561px;
+    background-color: blue;
+}
+
+.sub-img {
+    background-image: url(../img/img1.jpeg);
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+}
+
+.sub-content {
+    width: 50%;
+    height: 100%;
+    background-color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-head {
+    font-size: 35px;
+    font-family: "ヒラギノ角ゴシック", sans-serif;
+    font-weight: bold;
+}
+
+.sub-text {
+    font-size: 15px;
+    line-height: 2.1em;
+    margin-top: 46px;
+    letter-spacing: 3.75px;
+}
+
+/* ここでsub-text-wrapに色をつけてみよう。 */
+/* こんな感じになってるよ */
+.sub-text-wrap {
+    /* background-color: blue; */
+
+    /* て感じなので、横幅を制限するよ。 */
+    /* 親要素に対して75%の幅になれば良さそうね */
+    width: 75%;
+}
+
+/* -------------------------------------- */
+
+
+/* -------------------------------------- */
+
+/* 　　　　　　　　　 下段                    */
+
+.last {
+    width: 100%;
+    height: 471px;
+
+    /* last-wrapに色をつけると分かりやすいが、 */
+    /* .sub-text-wrapと全く同じことをしているだけである */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.last-wrap {
+    text-align: center;
+    /* ボタンが右寄っちゃうから中央寄せるぜ */
+}
+
+.last-catch {
+    /* 文字装飾してるだけだぜ */
+    font-size: 30px;
+    color: #1CA6D2;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+}
+
+.last-button {
+    /* まずは形ね */
+    width: 237px;
+    height: 50px;
+    border-radius: 25px;
+
+    /* 箱に色つけたり影つけたりするよ */
+    box-shadow: 0 5px 0 #0A4457;
+    background: linear-gradient(to bottom, #0088CE,#00BAEB);
+    cursor: pointer;
+
+    /* んで文字ね */
+    font-family: "Avenir Next Condensed", sans-serif;
+    font-size: 23px;
+    letter-spacing: 0.69px;
+    color: #fff;
+
+    /* あとは適当に距離とってあげるよ */
+    /* 上の文字のmargin-bottomでも全然いいよ。 */
+    /* え？同じ余白ならこのボタンのpadding-topでもいいんじゃないかって？ */
+    /* じゃぁやってみなよ。そして嘆くがいいさ */
+    margin-top: 62px;
+}
+
+.last-button:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+/* -------------------------------------- */
+
+/* -------------------------------------- */
+
+/* 　　　　　　　　フッター                   */
+
+footer {
+    height: 50px;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    /* はい */
+    font-size: 10px;
+    letter-spacing: 2.5px;
+}
+
+/* -------------------------------------- */
+
+
+
+
